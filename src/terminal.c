@@ -69,7 +69,7 @@ void flushTermOld()
 	if (ROW < VGAHEIGHT) {
 		counter = -1;
 		while (++counter < (VGAHEIGHT - (ROW + 1)) * VGAWIDTH) {
-			Kernel.TermBuff[counter] = ACTIVE_TERMINAL.Lines[(50 - (VGAHEIGHT - ROW)) + (counter / VGAWIDTH)][counter % VGAWIDTH];
+			Kernel.TermBuff[counter] = ACTIVE_TERMINAL.Lines[((VGAHEIGHT * 2) - (VGAHEIGHT - ROW)) + (counter / VGAWIDTH)][counter % VGAWIDTH];
 		}
 		counter2 = -1;
 		while (++counter2 < ROW * VGAWIDTH) {
@@ -110,19 +110,19 @@ void ArrowHandler(uint8_t mode)
 	uint32_t supRow;
 
 	if (mode == 1) // up arrow
-	{
-		if (ROW <= Kernel.ArrowBuff) {
-			return;
-		}
-		Kernel.ArrowBuff++;
-	}
-	else if (mode == 0) // down arrow
-	{
-		if (Kernel.ArrowBuff < 1) {
-			return;
-		}
-		Kernel.ArrowBuff--;
-	}
+    {
+        if (ROW <= Kernel.ArrowBuff || Kernel.ArrowBuff >= ROW - VGAHEIGHT + 1) {
+            return;
+        }
+        Kernel.ArrowBuff++;
+    }
+    else if (mode == 0) // down arrow
+    {
+        if (Kernel.ArrowBuff < 1) {
+            return;
+        }
+        Kernel.ArrowBuff--;
+    }
 
 	supRow = ROW - Kernel.ArrowBuff;
 

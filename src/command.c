@@ -15,7 +15,6 @@ void InitAllCommands(void)
 	PushBackCommand(CreateCommand("readstack", "[all, spesicif address]", &ReadStackCommand));
 	PushBackCommand(CreateCommand("writestack", "[spesific address] [value]", &WriteStackCommand));
 	PushBackCommand(CreateCommand("reboot", "", &RebootCommand));
-	PushBackCommand(CreateCommand("halt", "(dont use !)", &HaltCommand));
 }
 
 tCommand *CreateCommand(char *name, char *description, void (*function)(char *argument))

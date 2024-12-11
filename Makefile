@@ -1,6 +1,6 @@
 NSRC = boot.s
 CSRC = $(shell find ./src -name "*.c")
-OBJ = kern.o boot.o printFuncs.o keyboard.o utils.o terminal.o gdt.o terminalCommands.o kmalloc.o command.o
+OBJ = kern.o boot.o keyboard.o utils.o terminal.o gdt.o terminalCommands.o kmalloc.o command.o
 CFLAGS = -fno-builtin -fno-builtin -fno-builtin -nostdlib -nodefaultlibs
 CC = gcc
 AC = nasm

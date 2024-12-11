@@ -51,7 +51,6 @@ void	handle_keyboard_interrupt();
 //extern	uint8_t *strdup(uint8_t *str);
 void	termReset(void);
 void	write(int32_t fd, uint8_t *str, uint32_t len);
-void	putnbr(int32_t nbr);
 void	ArrowHandler(uint8_t mode);
 void	leftRightArrowHandler(uint8_t mode);
 void	init_gdt();

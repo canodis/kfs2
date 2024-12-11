@@ -6,10 +6,10 @@
 /* ************************************************************************** */
 
 #define SEG_DESCTYPE(x)  ((x) << 0x04) // Descriptor type (0 for system, 1 for code/data)
-#define SEG_PRES(x)      ((x) << 0x07) // Present
-#define SEG_SAVL(x)      ((x) << 0x0C) // Available for system use
-#define SEG_LONG(x)      ((x) << 0x0D) // Long mode
-#define SEG_SIZE(x)      ((x) << 0x0E) // Size (0 for 16-bit, 1 for 32)
+#define SEG_PRES(x)      ((x) << 0x07) // Present (is available for use 1 for yes)
+#define SEG_SAVL(x)      ((x) << 0x0C) // Available for system use (0 for no, 1 for yes)
+#define SEG_LONG(x)      ((x) << 0x0D) // Long mode (0 for 16-bit or 32-bit, 1 for 64 bit)
+#define SEG_SIZE(x)      ((x) << 0x0E) // Size (0 for 16-bit, 1 for 32-bit)
 #define SEG_GRAN(x)      ((x) << 0x0F) // Granularity (0 for 1B - 1MB, 1 for 4KB - 4GB)
 #define SEG_PRIV(x)     (((x) &  0x03) << 0x05)   // Set privilege level (0 - 3)
  

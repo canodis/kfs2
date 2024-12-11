@@ -148,13 +148,6 @@ void RebootCommand(char *argument)
 	asm volatile ("hlt");
 }
 
-void HaltCommand(char *argument)
-{
-	(void)argument;
-	write(1, "Halting system...\n", 18);
-	asm volatile ("hlt");
-}
-
 bool change_color(uint8_t* color)
 {
 	if (color == NULL)

@@ -34,7 +34,7 @@ void	init_gdt()
 	create_descriptor(2, 0, 0xFFFF, (uint8_t)(GDT_DATA_PL0),  FLAG_D_32);	// kernel data (kernel heap)
 	create_descriptor(3, 0, 0xFFFF, (uint8_t)(GDT_STACK_PL0), FLAG_D_32);	// kernel stack
 	create_descriptor(4, 0, 0xBFFF, (uint8_t)(GDT_CODE_PL3),  FLAG_D_32);	// user code (user-executed binaries)
-	create_descriptor(5, 0x01000000, 0xBFFF, (uint8_t)(GDT_DATA_PL3),  FLAG_D_32);	// user data (user heap)
+	create_descriptor(5, 0, 0xBFFF, (uint8_t)(GDT_DATA_PL3),  FLAG_D_32);	// user data (user heap)
 	create_descriptor(6, 0, 0xBFFF, (uint8_t)(GDT_STACK_PL3), FLAG_D_32);	// user stack
 
 	load_gdt(((uint32_t)gdt_ptr));
